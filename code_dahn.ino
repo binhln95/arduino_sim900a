@@ -68,7 +68,7 @@ void sendLogsData(char* times, int total_time,int humidity) {
 
 void sendHumiTenMin(int humidity){
   char msg[100];
-  sprintd(msg, "/embedded_2017/humidity-update?id_tree=1&humi=%d", humidity);
+  sprintf(msg, "/embedded_2017/humidity-update?id_tree=1&humi=%d", humidity);
   Serial.println(msg);
   gprs.sendData(msg);
 }
@@ -77,7 +77,7 @@ void loop() {
   //  sendMSG();
   //    recept();
   char msg[100] = "hello1";
-  sendLogsData("2017-12-12", 12, 50); // send data to server
+  // sendLogsData("2017-12-12", 12, 50); // send data to server
   sendHumiTenMin(95);
   delay(1000);
 }

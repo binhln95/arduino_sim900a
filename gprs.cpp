@@ -64,7 +64,8 @@ void gprs::sendData(char* url){
         d = gsmGPRS.read();
         Serial.print(d);
     }
-    char* BASE_URL = "47.74.176.246:3000";
+    char* BASE_URL = "117.0.172.40:3000";
+    // char* BASE_URL = "47.74.176.246:3000";
 
     delay(varloop);
     char cmd[100] = "AT+HTTPPARA=\"URL\",\"";
