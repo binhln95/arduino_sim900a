@@ -59,26 +59,33 @@ void sendMSG() {
   }
 }
 
-void sendLogsData(char* times, int total_time,int humidity) {
+void sendLogsData(char* timeStart, char *timeEnd ,int humidityStart,int humidityEnd, int id) {
   char msg[100];
-  sprintf(msg, "/embedded_2017/receive_data_sim900a?id_tree=1&time=%s&total=%d&humi=%d", times, total_time,  humidity);
+  sprintf(msg, "/embedded_2017/receive_data_sim900a?id_tree=%d&timestart=%s&timeend=%d&humistart=%d,humiend", id, timeStart, timeEnd, humidityStart, humidityEnd);
   Serial.println(msg);
   gprs.sendData(msg);
 }
 
-void sendHumiTenMin(int humidity){
+void sendHumiTenMin(int humidity, int id){
   char msg[100];
-  sprintf(msg, "/embedded_2017/humidity-update?id_tree=1&humi=%d", humidity);
+  sprintf(msg, "/embedded_2017/humidity-update?id_tree=%d&humi=%d", id, humidity);
   Serial.println(msg);
   gprs.sendData(msg);
+}
+
+void setting(){
+  char msg[100];
+  sprintf(msg, "/embedded_2017/setting");
+  Serial.println(msg);
+  
 }
   
 void loop() {
   //  sendMSG();
   //    recept();
+  int id = 1;
   char msg[100] = "hello1";
-  // sendLogsData("2017-12-12", 12, 50); // send data to server
-  sendHumiTenMin(95);
+  // sendLogsData("2017-12-12", 12, 50, id); // send data to server
+  sendHumiTenMin(95, id);
   delay(1000);
 }
-

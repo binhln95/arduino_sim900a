@@ -8,4 +8,5 @@ private:
 public:
 	void setupGPRS();
 	void sendData(char *msg);
+	void setting(char *url);
 };
