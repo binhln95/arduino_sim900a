@@ -77,6 +77,7 @@ void setting(){
   char msg[100];
   sprintf(msg, "/embedded_2017/setting");
   Serial.println(msg);
+  gprs.setting(msg);
   
 }
   
@@ -86,6 +87,7 @@ void loop() {
   int id = 1;
   char msg[100] = "hello1";
   // sendLogsData("2017-12-12", 12, 50, id); // send data to server
-  sendHumiTenMin(95, id);
+  // sendHumiTenMin(95, id);
+  setting();
   delay(1000);
 }
