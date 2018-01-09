@@ -114,7 +114,7 @@ void gprs::setting(char *url){
     gsmGPRS.println("AT+CIPSHUT");
     while (gsmGPRS.available()) {
         d = gsmGPRS.read();
-        // Serial.print(d);
+         Serial.print(d);
     }
     char* BASE_URL = "117.0.172.40:3000";
     // char* BASE_URL = "47.74.176.246:3000";
@@ -130,14 +130,14 @@ void gprs::setting(char *url){
     gsmGPRS.println(cmd);
     while (gsmGPRS.available()) {
         d = gsmGPRS.read();
-        // Serial.print(d);
+         Serial.print(d);
     }
     delay(varloop);
     gsmGPRS.println("AT+HTTPACTION=0");
     Serial.println("AT+HTTPACTION=0");
     while (gsmGPRS.available()) {
         d = gsmGPRS.read();
-        // Serial.print(d);
+         Serial.print(d);
     }
     delay(varloop);
     gsmGPRS.println("AT+HTTPREAD=0,20");
